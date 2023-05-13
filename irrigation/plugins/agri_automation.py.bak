@@ -1,0 +1,29 @@
+
+# -*- coding: utf-8 -*-
+
+from slackbot.bot import respond_to
+from slackbot.bot import listen_to
+
+import RPi.GPIO as GPIO
+import time
+
+@listen_to('水やり(.*)')
+
+def wateringResponse(message, something):
+
+	sec = int('{0}'.format(something))
+	GPIO.setmode(GPIO.BCM)
+	PIN = 27
+
+	GPIO.setup(PIN, GPIO.OUT)
+
+	GPIO.output(PIN, GPIO.HIGH)
+
+	time.sleep(sec)
+
+	GPIO.output(PIN, GPIO.LOW)
+                
+	msg = '水やりを '+ str(sec) +' 秒　やったよ！'
+
+
+	message.reply(msg)
