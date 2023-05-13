@@ -1,6 +1,6 @@
 # -*- coding:utf-8
 
-API_TOKEN = "xoxb-187389465281-5244904665463-0uYsDNH4zK5MWt52QBfDQska"
+API_TOKEN = "slack_sertificate_token"
 
 PLUGINS = [
 	'plugins'
